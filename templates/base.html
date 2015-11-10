@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ app_name }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+    <style>
+        body {
+            padding-top: 40px;
+        }
+        #main {
+            margin-top: 80px;
+            text-align: center;
+        }
+    </style>
+
+    <!--[if IE]>
+      <script type="text/javascript">
+        var tags = ['header', 'section'];
+        while(tags.length)
+          document.createElement(tags.pop());
+      </script>
+    <![endif]-->
+</head>
+<body>
+    <script type="text/javascript">
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '{{ app_id }}',
+                status     : true,
+                cookie     : true,
+                xfbml      : true
+            });
+
+            FB.Event.subscribe('auth.login', function(response) {
+                window.location = window.location;
+            });
+        };
+
+        // Load the SDK Asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">DennisSwagtunin</a>
+        </div>
+    </div>
+
+    <div class="container" id="main">
+        {% block content %} {% endblock %}
+    </div>
+
+    <script>
+        document.getElementById('logout').onclick = function() {
+            FB.logout(function(response) { });
+        };
+    </script>
+</body>
+</html>
