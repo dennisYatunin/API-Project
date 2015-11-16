@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils import get_salary, get_rating, get_secret_key
+from utils import get_salary, get_name_and_rating, get_rating, get_secret_key
 
 app = Flask(__name__)
 
@@ -10,20 +10,41 @@ def index():
             request.form['first'],
             request.form['last']
             )
-        rating_data = get_rating(
-            salary_data['full_name'],
-            request.form['school']
-            )
+        full_name = salary_data['full_name']
+        salary = salary_data['salary']
+        if not salary:
+            name_and_rating_data = get_name_and_rating(
+                full_name,
+                request.form['school']
+                )
+            subject = name_and_rating_data['subject']
+            rating = name_and_rating_data['rating']
+            num_ratings = name_and_rating_data['num_ratings']
+            salary_data = get_salary(
+                name_and_rating_data['first_name'],
+                name_and_rating_data['last_name']
+                )
+            full_name = salary_data['full_name']
+            salary = salary_data['salary']
+        else:
+            rating_data = get_rating(
+                salary_data['full_name'],
+                request.form['school']
+                )
+            subject = rating_data['subject']
+            rating = rating_data['rating']
+            num_ratings = rating_data['num_ratings']
         return render_template(
             'results.html',
-            full_name = salary_data['full_name'],
-            salary = salary_data['salary'],
-            rating = rating_data['rating'],
-            num_ratings = rating_data['num_ratings']
+            full_name = full_name,
+            subject = subject,
+            salary = salary,
+            rating = rating,
+            num_ratings = num_ratings
             )
     return render_template('index.html')
 
 if __name__ == "__main__":
    app.debug = True
    app.secret_key = get_secret_key()
-   app.run(host="0.0.0.0", port=9000)
+   app.run(host="0.0.0.0", port=8000)
