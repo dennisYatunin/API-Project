@@ -40,9 +40,14 @@
 <h4>Salary: {{ '${:,.2f}'.format(salary) }} per year</h4>
 {% endif %}
 
+<h3>Efficiency as a percentage, relative to salary: {{ '{:,.2f}'.format(eff_percent) }} <h3>
+<h3>Efficiency as a percentage, relative to maximum possible: {{ '{:,.2f}'.format(eff_percent / 2.2) }} <h3>
+<p>Efficiency as a percentage relative to salary is calculated as ((rating ÷ max rating) ÷ (salary ÷ max salary)) ÷ max ratio (highest rating ÷ lowest slary).</p>
+<p>Efficiency as a percentage relative to maximum is calculated as (Efficiency as a percentage relative to salary) ÷ (highest rating ÷ lowest slary).</p>
+
 <p>*Effiency is calculated as rating ÷ salary &times; 100,000</p>
 
-<br><br>
+
 <h1>{{ full_name }} probably looks like this:</h1>
 <img src="{{photo}}" class="img-rounded" style="max-height: 600px; max-width: 60%; display: block;" />
 {% endif %}

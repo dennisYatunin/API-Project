@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils import get_salary, get_name_and_rating, get_rating, get_secret_key, get_photo
+from utils import get_salary, get_name_and_rating, get_rating, get_secret_key, get_photo, get_eff_as_percent
 
 app = Flask(__name__)
 
@@ -27,6 +27,7 @@ def index():
             full_name = salary_data['full_name']
             salary = salary_data['salary']
             photo = get_photo(full_name, request.form['school'])
+            eff_percent = 0
         else:
             rating_data = get_rating(
                 salary_data['full_name'],
@@ -36,6 +37,7 @@ def index():
             rating = rating_data['rating']
             num_ratings = rating_data['num_ratings']
             photo = get_photo(full_name, request.form['school'])
+            eff_percent = get_eff_as_percent(salary, rating)
         return render_template(
             'results.html',
             full_name = full_name,
@@ -43,11 +45,12 @@ def index():
             salary = salary,
             rating = rating,
             num_ratings = num_ratings,
-            photo = photo
+            photo = photo,
+            eff_percent = eff_percent
             )
     return render_template('index.html')
 
 if __name__ == "__main__":
    app.debug = True
    app.secret_key = get_secret_key()
-   app.run(host="0.0.0.0", port=8000)
+   app.run(host="0.0.0.0", port=9000)

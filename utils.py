@@ -171,6 +171,16 @@ def get_photo(name, high_school):
     response = Request(inputurl)
     return loads(urlopen(response).read())['responseData']['results'][0]['url']
 
+def get_eff_as_percent(salary, rating):
+    salary_percent = (salary/100049.0)*100
+    rating_percent = (rating/5.0)*100
+    if salary_percent < 1.0:
+        salary_percent = 1.0
+    if rating_percent < 1.0:
+        rating_percent = 1.0
+    eff_percent_raw = rating_percent / salary_percent
+    return eff_percent_raw
+
 def get_secret_key():
     '''Returns a key that may be used to secure a Flask session
 
