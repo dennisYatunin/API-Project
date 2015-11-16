@@ -4,9 +4,8 @@
 <div class="alert alert-danger">
   <strong>Error</strong> Data unavailable. Please try another name for this teacher.
 </div>
-{% endif %}
-
-<h1>Data for Teacher {{ full_name }}</h1>
+{% else %}
+<h1>Data for teacher {{ full_name }}</h1>
 
 {% if not rating or not salary %}
 <h3>*Efficiency: N/A</h3>
@@ -27,4 +26,5 @@
 {% endif %}
 
 <p>*Effiency is calculated as Rating / Salary * 100000</p>
+{% endif %}
 {% endblock %}
