@@ -17,8 +17,7 @@ def index():
         return render_template(
             'results.html',
             full_name = salary_data['full_name'],
-            salary = "{:,}".format(salary_data['salary']),
-			salaryfloat = salary_data['salary'],
+            salary = salary_data['salary'],
             rating = rating_data['rating'],
             num_ratings = rating_data['num_ratings']
             )
@@ -27,4 +26,4 @@ def index():
 if __name__ == "__main__":
    app.debug = True
    app.secret_key = get_secret_key()
-   app.run(host="0.0.0.0", port=8000)
+   app.run(host="0.0.0.0", port=9000)

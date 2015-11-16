@@ -10,7 +10,7 @@
 {% if not rating or not salary %}
 <h3>*Efficiency: N/A</h3>
 {% else %}
-<h3>Efficiency: {{ (rating / salaryfloat * 10000000)|int / 100.0 }}*</h3>
+<h3>Efficiency: {{ "{:,.2f}".format(rating / salary * 10000000) }}*</h3>
 {% endif %}
 
 {% if not rating %}
@@ -22,7 +22,7 @@
 {% if not salary %}
 <h4>Salary: N/A</h4>
 {% else %}
-<h4>Salary: ${{ salary }}0 per Year</h4>
+<h4>Salary: {{ "${:,.2f}".format(salary) }} per Year</h4>
 {% endif %}
 
 <p>*Effiency is calculated as Rating ÷ Salary &times; 100000</p>
