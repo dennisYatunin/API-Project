@@ -36,7 +36,11 @@ def get_salary(first_name, last_name):
             full_name = first_name + ' ' + last_name
             salary = None
             return {'full_name': full_name, 'salary': salary}
-        url = uri % (first_name, last_name, quote_plus(agency_names[i]))
+        url = uri % (
+        	quote_plus(first_name),
+        	quote_plus(last_name),
+        	quote_plus(agency_names[i])
+        	)
         request = Request(url)
         request.add_header('X-App-Token', 'wLV7RwuxVb6qKDLYtE00B2eLV')
         page = urlopen(request).read()
@@ -154,8 +158,8 @@ def get_photo(name, high_school):
     Takes in any string of text (hopefully the teacher's name) and
     the name of a high school.
 	
-	Uses the Google Image Search API and extracts the URL for the 
-	first image result.
+    Uses the Google Image Search API and extracts the URL for the 
+    first image result.
     '''
     namesplit = name.split(" ")
     querylist = []
@@ -166,7 +170,7 @@ def get_photo(name, high_school):
     for i in querylist:
         querystring += i + "+"
     querystring = querystring[:-1]
-    print querystring
+    querystring = quote_plus(query_string)
     inputurl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + querystring +"&start=0"
     response = Request(inputurl)
     return loads(urlopen(response).read())['responseData']['results'][0]['url']
