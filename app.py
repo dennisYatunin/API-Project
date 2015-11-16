@@ -17,7 +17,8 @@ def index():
         return render_template(
             'results.html',
             full_name = salary_data['full_name'],
-            salary = salary_data['salary'],
+            salary = "{:,}".format(salary_data['salary']),
+			salaryfloat = salary_data['salary'],
             rating = rating_data['rating'],
             num_ratings = rating_data['num_ratings']
             )
