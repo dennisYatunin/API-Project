@@ -154,8 +154,8 @@ def get_photo(name, high_school):
     Takes in any string of text (hopefully the teacher's name) and
     the name of a high school.
 	
-	Uses the Google Image Search API and extracts the URL for the 
-	first image result.
+    Uses the Google Image Search API and extracts the URL for the 
+    first image result.
     '''
     namesplit = name.split(" ")
     querylist = []
