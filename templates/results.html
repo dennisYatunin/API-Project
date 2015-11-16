@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-{% if not rating or not salary %}
+{% if not rating and not salary %}
 <div class="alert alert-danger">
-  <strong>Error</strong> Data unavailable. Please try another name for this teacher.
+  <strong>Error</strong> No data available for '{{ full_name }}'. Make sure to avoid using nicknames and abbreviations.
 </div>
 {% else %}
+
+{% if not rating %}
+<div class="alert alert-danger">
+  <strong>Error</strong> No ratings available at <a href="http://www.ratemyteachers.com/">ratemyteachers.com</a>. Make sure to avoid using nicknames and abbreviations.
+</div>
+{% elif not salary %}
+<div class="alert alert-danger">
+  <strong>Error</strong> No salary available in the <a href="https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-FY2014/k397-673e">Citywide Payroll Database</a>. Make sure to avoid using nicknames and abbreviations.
+</div>
+{% endif %}
+
 <h1>Data for teacher {{ full_name }}</h1>
 
 {% if not rating or not salary %}
-<h3>*Efficiency: N/A</h3>
+<h3>Efficiency: N/A*</h3>
 {% else %}
-<h3>Efficiency: {{ "{:,.2f}".format(rating / salary * 10000000) }}*</h3>
+<h3>Efficiency: {{ '{:,.2f}'.format(rating / salary * 100000) }}*</h3>
 {% endif %}
 
 {% if not rating %}
@@ -22,9 +33,9 @@
 {% if not salary %}
 <h4>Salary: N/A</h4>
 {% else %}
-<h4>Salary: {{ "${:,.2f}".format(salary) }} per Year</h4>
+<h4>Salary: {{ '${:,.2f}'.format(salary) }} per Year</h4>
 {% endif %}
 
-<p>*Effiency is calculated as Rating ÷ Salary &times; 100000</p>
+<p>*Effiency is calculated as Rating ÷ Salary &times; 100,000</p>
 {% endif %}
 {% endblock %}
