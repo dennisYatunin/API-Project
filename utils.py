@@ -147,6 +147,30 @@ def get_rating(name, high_school):
         num_ratings = None
     return {'subject': subject, 'rating': rating, 'num_ratings': num_ratings}
 
+def get_photo(name, high_school):
+    '''Returns a URL string for the most probable photo of the
+    specified teacher.
+	
+    Takes in any string of text (hopefully the teacher's name) and
+    the name of a high school.
+	
+	Uses the Google Image Search API and extracts the URL for the 
+	first image result.
+    '''
+    namesplit = name.split(" ")
+    querylist = []
+    querylist.append(namesplit[0])
+    querylist.append(namesplit[-1])
+    querylist += high_school.split(" ")
+    querystring = ""
+    for i in querylist:
+        querystring += i + "+"
+    querystring = querystring[:-1]
+    print querystring
+    inputurl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + querystring +"&start=0"
+    response = Request(inputurl)
+    return loads(urlopen(response).read())['responseData']['results'][0]['url']
+
 def get_secret_key():
     '''Returns a key that may be used to secure a Flask session
 

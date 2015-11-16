@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils import get_salary, get_name_and_rating, get_rating, get_secret_key
+from utils import get_salary, get_name_and_rating, get_rating, get_secret_key, get_photo
 
 app = Flask(__name__)
 
@@ -12,6 +12,7 @@ def index():
             )
         full_name = salary_data['full_name']
         salary = salary_data['salary']
+        photo = get_photo(full_name, request.form['school'])
         if not salary:
             name_and_rating_data = get_name_and_rating(
                 full_name,
@@ -40,7 +41,8 @@ def index():
             subject = subject,
             salary = salary,
             rating = rating,
-            num_ratings = num_ratings
+            num_ratings = num_ratings,
+            photo = photo
             )
     return render_template('index.html')
 

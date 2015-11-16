@@ -37,9 +37,13 @@
 {% if not salary %}
 <h4>Salary: N/A</h4>
 {% else %}
-<h4>Salary: {{ '${:,.2f}'.format(salary) }} per Year</h4>
+<h4>Salary: {{ '${:,.2f}'.format(salary) }} per year</h4>
 {% endif %}
 
-<p>*Effiency is calculated as Rating ÷ Salary &times; 100,000</p>
+<p>*Effiency is calculated as rating ÷ salary &times; 100,000</p>
 {% endif %}
+
+<br><br>
+<h1>{{ full_name }} probably looks like this:</h1>
+<img src="{{photo}}" style="max-height: 600px; max-width: 600px;" />
 {% endblock %}
