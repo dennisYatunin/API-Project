@@ -10,7 +10,7 @@
 {% if not rating or not salary %}
 <h3>*Efficiency: N/A</h3>
 {% else %}
-<h3>*Efficiency: {{ (rating / salary * 10000000)|int / 100.0 }}</h3>
+<h3>Efficiency: {{ (rating / salary * 10000000)|int / 100.0 }}*</h3>
 {% endif %}
 
 {% if not rating %}
