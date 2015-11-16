@@ -170,7 +170,7 @@ def get_photo(name, high_school):
     for i in querylist:
         querystring += i + "+"
     querystring = querystring[:-1]
-    querystring = quote_plus(query_string)
+    querystring = quote_plus(querystring)
     inputurl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + querystring +"&start=0"
     response = Request(inputurl)
     return loads(urlopen(response).read())['responseData']['results'][0]['url']
