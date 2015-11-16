@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<form role="form" method="post">
+	<div class="form-group">
+		<label for="first">First Name:</label>
+		<input type="text" class="form-control" id="first" name="first">
+	</div>
+	<div class="form-group">
+		<label for="last">Last Name:</label>
+		<input type="text" class="form-control" id="last" name="last" required>
+	</div>
+	<div class="form-group">
+		<label for="school">School:</label>
+		<select class="form-control" id="school" name="school">
+			{% block options %} {% endblock %}
+		</select>
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}

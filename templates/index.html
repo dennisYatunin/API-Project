@@ -1,11 +1,1314 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="center">
-    <p class='circle-image'
-       style="background-image: url(https://graph.facebook.com/{{ user['id'] }}/picture?type=large);
-              margin-left: auto; margin-right: auto;">
-    </p>
-    <h3>Hello, {{ user['name'] }}.</h3>
-    <a href="/" id="logout">Log out</a>
-</div>
+{% extends "index_base.html" %}
+{% block options %}
+<option value="47 the american sign language and english secondary school">
+	47 The American Sign Language and English Secondary School
+</option>
+<option value="a philip randolph campus high school">
+	A. Philip Randolph Campus High School
+</option>
+<option value="abraham lincoln high school">
+	Abraham Lincoln High School
+</option>
+<option value="academy for careers in television and film">
+	Academy for Careers in Television and Film
+</option>
+<option value="academy for college preparation and career exploration a college board school">
+	Academy for College Preparation and Career Exploration: A College Board School
+</option>
+<option value="academy for conservation and the environment">
+	Academy for Conservation and the Environment
+</option>
+<option value="academy for environmental leadership">
+	Academy for Environmental Leadership
+</option>
+<option value="academy for health careers">
+	Academy for Health Careers
+</option>
+<option value="academy for language and technology">
+	Academy for Language and Technology
+</option>
+<option value="academy for scholarship and entrepreneurship a college board school">
+	Academy for Scholarship and Entrepreneurship: A College Board School
+</option>
+<option value="academy for social action a college board school">
+	Academy for Social Action: A College Board School
+</option>
+<option value="academy for software engineering">
+	Academy for Software Engineering
+</option>
+<option value="academy for young writers">
+	Academy for Young Writers
+</option>
+<option value="academy of american studies">
+	Academy of American Studies
+</option>
+<option value="academy of finance and enterprise">
+	Academy of Finance and Enterprise
+</option>
+<option value="academy of hospitality and tourism">
+	Academy of Hospitality and Tourism
+</option>
+<option value="academy of innovative technology">
+	Academy of Innovative Technology
+</option>
+<option value="academy of medical technology a college board school">
+	Academy of Medical Technology: A College Board School
+</option>
+<option value="academy of urban planning">
+	Academy of Urban Planning
+</option>
+<option value="acorn community high school">
+	ACORN Community High School
+</option>
+<option value="alfred e smith career and technical education high school">
+	Alfred E. Smith Career and Technical Education High School
+</option>
+<option value="all city leadership secondary school">
+	All City Leadership Secondary School
+</option>
+<option value="antonia pantoja preparatory academy a college board school">
+	Antonia Pantoja Preparatory Academy: A College Board School
+</option>
+<option value="archimedes academy for math science and technology applications">
+	Archimedes Academy for Math, Science and Technology Applications
+</option>
+<option value="art and design high school">
+	Art and Design High School
+</option>
+<option value="arts media preparatory academy">
+	Arts &amp; Media Preparatory Academy
+</option>
+<option value="astor collegiate academy">
+	Astor Collegiate Academy
+</option>
+<option value="august martin high school">
+	August Martin High School
+</option>
+<option value="automotive high school">
+	Automotive High School
+</option>
+<option value="aviation career technical education high school">
+	Aviation Career &amp; Technical Education High School
+</option>
+<option value="baccalaureate school for global education">
+	Baccalaureate School for Global Education
+</option>
+<option value="banana kelly high school">
+	Banana Kelly High School
+</option>
+<option value="bard high school early college">
+	Bard High School Early College
+</option>
+<option value="bard high school early college queens">
+	Bard High School Early College Queens
+</option>
+<option value="baruch college campus high school">
+	Baruch College Campus High School
+</option>
+<option value="bayside high school">
+	Bayside High School
+</option>
+<option value="beacon high school">
+	Beacon High School
+</option>
+<option value="bedford academy high school">
+	Bedford Academy High School
+</option>
+<option value="belmont preparatory high school">
+	Belmont Preparatory High School
+</option>
+<option value="benjamin banneker academy">
+	Benjamin Banneker Academy
+</option>
+<option value="benjamin franklin high school for finance information technology">
+	Benjamin Franklin High School for Finance &amp; Information Technology
+</option>
+<option value="benjamin n cardozo high school">
+	Benjamin N. Cardozo High School
+</option>
+<option value="boys and girls high school">
+	Boys and Girls High School
+</option>
+<option value="bronx academy for software engineering base">
+	Bronx Academy for Software Engineering (BASE)
+</option>
+<option value="bronx academy of health careers">
+	Bronx Academy of Health Careers
+</option>
+<option value="bronx aerospace high school">
+	Bronx Aerospace High School
+</option>
+<option value="bronx bridges high school">
+	Bronx Bridges High School
+</option>
+<option value="bronx career and college preparatory high school">
+	Bronx Career and College Preparatory High School
+</option>
+<option value="bronx center for science and mathematics">
+	Bronx Center for Science and Mathematics
+</option>
+<option value="bronx collaborative high school">
+	Bronx Collaborative High School
+</option>
+<option value="bronx collegiate academy">
+	Bronx Collegiate Academy
+</option>
+<option value="bronx compass high school">
+	Bronx Compass High School
+</option>
+<option value="bronx design and construction academy">
+	Bronx Design and Construction Academy
+</option>
+<option value="bronx early college academy for teaching learning">
+	Bronx Early College Academy for Teaching &amp; Learning
+</option>
+<option value="bronx engineering and technology academy">
+	Bronx Engineering and Technology Academy
+</option>
+<option value="bronx envision academy">
+	Bronx Envision Academy
+</option>
+<option value="bronx guild">
+	Bronx Guild
+</option>
+<option value="bronx health sciences high school">
+	Bronx Health Sciences High School
+</option>
+<option value="bronx high school for law and community service">
+	Bronx High School for Law and Community Service
+</option>
+<option value="bronx high school for medical science">
+	Bronx High School for Medical Science
+</option>
+<option value="bronx high school for the visual arts">
+	Bronx High School for the Visual Arts
+</option>
+<option value="bronx high school for writing and communication arts">
+	Bronx High School for Writing and Communication Arts
+</option>
+<option value="bronx high school of business">
+	Bronx High School of Business
+</option>
+<option value="bronx high school of science">
+	Bronx High School of Science
+</option>
+<option value="bronx international high school">
+	Bronx International High School
+</option>
+<option value="bronx lab school">
+	Bronx Lab School
+</option>
+<option value="bronx latin">
+	Bronx Latin
+</option>
+<option value="bronx leadership academy high school">
+	Bronx Leadership Academy High School
+</option>
+<option value="bronx leadership academy ii high school">
+	Bronx Leadership Academy II High School
+</option>
+<option value="bronx river high school">
+	Bronx River High School
+</option>
+<option value="bronx school for law government and justice">
+	Bronx School for Law, Government and Justice
+</option>
+<option value="bronx school of law and finance">
+	Bronx School of Law and Finance
+</option>
+<option value="bronx studio school for writers and artists">
+	Bronx Studio School for Writers and Artists
+</option>
+<option value="bronx theatre high school">
+	Bronx Theatre High School
+</option>
+<option value="bronxdale high school">
+	Bronxdale High School
+</option>
+<option value="the bronxwood preparatory academy">
+	The Bronxwood Preparatory Academy
+</option>
+<option value="the brooklyn academy of global finance">
+	The Brooklyn Academy of Global Finance
+</option>
+<option value="brooklyn academy of science and the environment">
+	Brooklyn Academy of Science and the Environment
+</option>
+<option value="brooklyn college academy">
+	Brooklyn College Academy
+</option>
+<option value="brooklyn collegiate a college board school">
+	Brooklyn Collegiate: A College Board School
+</option>
+<option value="brooklyn community high school of communication arts and media">
+	Brooklyn Community High School of Communication, Arts and Media
+</option>
+<option value="brooklyn frontiers high school">
+	Brooklyn Frontiers High School
+</option>
+<option value="brooklyn generation school">
+	Brooklyn Generation School
+</option>
+<option value="brooklyn high school for law and technology">
+	Brooklyn High School for Law and Technology
+</option>
+<option value="brooklyn high school of the arts">
+	Brooklyn High School of the Arts
+</option>
+<option value="brooklyn institute for liberal arts">
+	Brooklyn Institute for Liberal Arts
+</option>
+<option value="brooklyn international high school">
+	Brooklyn International High School
+</option>
+<option value="brooklyn lab school">
+	Brooklyn Lab School
+</option>
+<option value="the brooklyn latin school">
+	The Brooklyn Latin School
+</option>
+<option value="brooklyn preparatory high school">
+	Brooklyn Preparatory High School
+</option>
+<option value="brooklyn school for global studies">
+	Brooklyn School for Global Studies
+</option>
+<option value="the brooklyn school for math and research">
+	The Brooklyn School for Math and Research
+</option>
+<option value="brooklyn school for music theatre">
+	Brooklyn School for Music &amp; Theatre
+</option>
+<option value="brooklyn secondary school for collaborative studies">
+	Brooklyn Secondary School for Collaborative Studies
+</option>
+<option value="brooklyn studio secondary school">
+	Brooklyn Studio Secondary School
+</option>
+<option value="brooklyn technical high school">
+	Brooklyn Technical High School
+</option>
+<option value="brooklyn theatre arts high school">
+	Brooklyn Theatre Arts High School
+</option>
+<option value="bushwick leaders high school for academic excellence">
+	Bushwick Leaders High School for Academic Excellence
+</option>
+<option value="bushwick school for social justice">
+	Bushwick School for Social Justice
+</option>
+<option value="business of sports school">
+	Business of Sports School
+</option>
+<option value="business technology early college high school">
+	Business Technology Early College High School
+</option>
+<option value="cambria heights academy">
+	Cambria Heights Academy
+</option>
+<option value="the celia cruz bronx high school of music">
+	The Celia Cruz Bronx High School of Music
+</option>
+<option value="central park east high school">
+	Central Park East High School
+</option>
+<option value="channel view school for research">
+	Channel View School for Research
+</option>
+<option value="chelsea career and technical education high school">
+	Chelsea Career and Technical Education High School
+</option>
+<option value="the cinema school">
+	The Cinema School
+</option>
+<option value="city college academy of the arts">
+	City College Academy of the Arts
+</option>
+<option value="city polytechnic high school of engineering architecture and technology">
+	City Polytechnic High School of Engineering, Architecture, and Technology
+</option>
+<option value="civic leadership academy">
+	Civic Leadership Academy
+</option>
+<option value="clara barton high school">
+	Clara Barton High School
+</option>
+<option value="claremont international high school">
+	Claremont International High School
+</option>
+<option value="the clinton school for writers artists">
+	The Clinton School for Writers &amp; Artists
+</option>
+<option value="coalition school for social change">
+	Coalition School for Social Change
+</option>
+<option value="cobble hill school of american studies">
+	Cobble Hill School of American Studies
+</option>
+<option value="the college academy">
+	The College Academy
+</option>
+<option value="collegiate institute for math and science">
+	Collegiate Institute for Math and Science
+</option>
+<option value="columbia secondary school">
+	Columbia Secondary School
+</option>
+<option value="community health academy of the heights">
+	Community Health Academy of the Heights
+</option>
+<option value="community school for social justice">
+	Community School for Social Justice
+</option>
+<option value="comprehensive model school project cmsp">
+	Comprehensive Model School Project (CMSP)
+</option>
+<option value="crotona international high school">
+	Crotona International High School
+</option>
+<option value="csi high school for international studies">
+	CSI High School for International Studies
+</option>
+<option value="cultural academy for the arts and sciences">
+	Cultural Academy for the Arts and Sciences
+</option>
+<option value="curtis high school">
+	Curtis High School
+</option>
+<option value="cypress hills collegiate preparatory school">
+	Cypress Hills Collegiate Preparatory School
+</option>
+<option value="dewitt clinton high school">
+	DeWitt Clinton High School
+</option>
+<option value="discovery high school">
+	Discovery High School
+</option>
+<option value="dr susan s mckinney secondary school of the arts">
+	Dr. Susan S. McKinney Secondary School of the Arts
+</option>
+<option value="dreamyard preparatory school">
+	DreamYard Preparatory School
+</option>
+<option value="eagle academy for young men">
+	Eagle Academy for Young Men
+</option>
+<option value="eagle academy for young men ii">
+	Eagle Academy for Young Men II
+</option>
+<option value="eagle academy for young men iii">
+	Eagle Academy for Young Men III
+</option>
+<option value="eagle academy for young men of harlem">
+	Eagle Academy for Young Men of Harlem
+</option>
+<option value="east bronx academy for the future">
+	East Bronx Academy for the Future
+</option>
+<option value="east new york family academy">
+	East New York Family Academy
+</option>
+<option value="east side community school">
+	East Side Community School
+</option>
+<option value="eastwest school of international studies">
+	East-West School of International Studies
+</option>
+<option value="ebc high school for public service bushwick">
+	EBC High School for Public Service - Bushwick
+</option>
+<option value="edward r murrow high school">
+	Edward R. Murrow High School
+</option>
+<option value="el puente academy for peace and justice">
+	El Puente Academy for Peace and Justice
+</option>
+<option value="eleanor roosevelt high school">
+	Eleanor Roosevelt High School
+</option>
+<option value="energy tech high school">
+	Energy Tech High School
+</option>
+<option value="epic high school – north">
+	Epic High School – North
+</option>
+<option value="epic high school – south">
+	Epic High School – South
+</option>
+<option value="esperanza preparatory academy">
+	Esperanza Preparatory Academy
+</option>
+<option value="essex street academy">
+	Essex Street Academy
+</option>
+<option value="excelsior preparatory high school">
+	Excelsior Preparatory High School
+</option>
+<option value="eximius college preparatory academy a college board school">
+	Eximius College Preparatory Academy: A College Board School
+</option>
+<option value="expeditionary learning school for community leaders">
+	Expeditionary Learning School for Community Leaders
+</option>
+<option value="explorations academy">
+	Explorations Academy
+</option>
+<option value="the facing history school">
+	The Facing History School
+</option>
+<option value="fannie lou hamer fr eedom high school">
+	Fannie Lou Hamer Fr eedom High School
+</option>
+<option value="fdny high school for fire and life safety">
+	FDNY High School for Fire and Life Safety
+</option>
+<option value="the felisa rincon de gautier institute for law and public policy">
+	The Felisa Rincon de Gautier Institute for Law and Public Policy
+</option>
+<option value="fiorello h laguardia high school of music art and performing arts">
+	Fiorello H. LaGuardia High School of Music &amp; Art and Performing Arts
+</option>
+<option value="flushing high school">
+	Flushing High School
+</option>
+<option value="flushing international high school">
+	Flushing International High School
+</option>
+<option value="food and finance high school">
+	Food and Finance High School
+</option>
+<option value="fordham high school for the arts">
+	Fordham High School for the Arts
+</option>
+<option value="fordham leadership academy for business and technology">
+	Fordham Leadership Academy for Business and Technology
+</option>
+<option value="foreign language academy of global studies">
+	Foreign Language Academy of Global Studies
+</option>
+<option value="forest hills high school">
+	Forest Hills High School
+</option>
+<option value="fort hamilton high school">
+	Fort Hamilton High School
+</option>
+<option value="foundations academy">
+	Foundations Academy
+</option>
+<option value="frances perkins academy">
+	Frances Perkins Academy
+</option>
+<option value="francis lewis high school">
+	Francis Lewis High School
+</option>
+<option value="frank mccourt high school">
+	Frank McCourt High School
+</option>
+<option value="frank sinatra school of the ar ts high school">
+	Frank Sinatra School of the Ar ts High School
+</option>
+<option value="franklin delano roosevelt high school">
+	Franklin Delano Roosevelt High School
+</option>
+<option value="frederick douglass academy">
+	Frederick Douglass Academy
+</option>
+<option value="frederick douglass academy ii secondary school">
+	Frederick Douglass Academy II Secondary School
+</option>
+<option value="frederick douglass academy iii secondary school">
+	Frederick Douglass Academy III Secondary School
+</option>
+<option value="frederick douglass academy iv secondary school">
+	Frederick Douglass Academy IV Secondary School
+</option>
+<option value="frederick douglass academy vi high school">
+	Frederick Douglass Academy VI High School
+</option>
+<option value="frederick douglass academy vii high school">
+	Frederick Douglass Academy VII High School
+</option>
+<option value="gaynor mccown expeditionary learning school">
+	Gaynor McCown Expeditionary Learning School
+</option>
+<option value="george washington carver high school for the sciences">
+	George Washington Carver High School for the Sciences
+</option>
+<option value="george westinghouse career and technical education high school">
+	George Westinghouse Career and Technical Education High School
+</option>
+<option value="the global learning collaborative">
+	The Global Learning Collaborative
+</option>
+<option value="gotham professional arts academy">
+	Gotham Professional Arts Academy
+</option>
+<option value="gramercy ar ts high school">
+	Gramercy Ar ts High School
+</option>
+<option value="green school an academy for environmental careers">
+	Green School: An Academy for Environmental Careers
+</option>
+<option value="gregorio luperon high school for science and mathematics">
+	Gregorio Luperon High School for Science and Mathematics
+</option>
+<option value="grover cleveland high school">
+	Grover Cleveland High School
+</option>
+<option value="hero high health education and research occupations high school">
+	H.E.R.O. High (Health, Education, and Research Occupations High School)
+</option>
+<option value="harry s truman high school">
+	Harry S Truman High School
+</option>
+<option value="harvest collegiate high school">
+	Harvest Collegiate High School
+</option>
+<option value="health opportunities high school">
+	Health Opportunities High School
+</option>
+<option value="henry str eet school for international studies">
+	Henry Str eet School for International Studies
+</option>
+<option value="herbert h lehman high school">
+	Herbert H. Lehman High School
+</option>
+<option value="the heritage school">
+	The Heritage School
+</option>
+<option value="high school for arts and business">
+	High School for Arts and Business
+</option>
+<option value="high school for arts imagination and inquiry">
+	High School for Arts, Imagination and Inquiry
+</option>
+<option value="high school for civil rights">
+	High School for Civil Rights
+</option>
+<option value="high school for community leadership">
+	High School for Community Leadership
+</option>
+<option value="high school for construction trades engineering and architectur e">
+	High School for Construction Trades, Engineering and Architectur e
+</option>
+<option value="high school for contemporary ar ts">
+	High School for Contemporary Ar ts
+</option>
+<option value="high school for dual language and asian studies">
+	High School for Dual Language and Asian Studies
+</option>
+<option value="high school for energy and technology">
+	High School for Energy and Technology
+</option>
+<option value="the high school for enterprise business and technology">
+	The High School for Enterprise, Business and Technology
+</option>
+<option value="high school for environmental studies">
+	High School for Environmental Studies
+</option>
+<option value="high school for excellence and innovation">
+	High School for Excellence and Innovation
+</option>
+<option value="the high school for global citizenship">
+	The High School for Global Citizenship
+</option>
+<option value="high school for health careers and sciences">
+	High School for Health Careers and Sciences
+</option>
+<option value="high school for health professions and human services">
+	High School for Health Professions and Human Services
+</option>
+<option value="high school for innovation in advertising and media">
+	High School for Innovation in Advertising and Media
+</option>
+<option value="the high school for language and diplomacy">
+	The High School for Language and Diplomacy
+</option>
+<option value="high school for law and public service">
+	High School for Law and Public Service
+</option>
+<option value="high school for law enforcement and public safety">
+	High School for Law Enforcement and Public Safety
+</option>
+<option value="high school for law advocacy and community justice">
+	High School for Law, Advocacy and Community Justice
+</option>
+<option value="high school for mathematics science and engineering at city college">
+	High School for Mathematics, Science and Engineering at City College
+</option>
+<option value="high school for media and communications">
+	High School for Media and Communications
+</option>
+<option value="high school for medical professions">
+	High School for Medical Professions
+</option>
+<option value="high school for public service heroes of tomorrow">
+	High School for Public Service: Heroes of Tomorrow
+</option>
+<option value="high school for service learning at erasmus">
+	High School for Service &amp; Learning at Erasmus
+</option>
+<option value="high school for teaching and the professions">
+	High School for Teaching and the Professions
+</option>
+<option value="high school for violin and dance">
+	High School for Violin and Dance
+</option>
+<option value="high school for youth and community development at erasmus">
+	High School for Youth and Community Development at Erasmus
+</option>
+<option value="high school of american studies at lehman college">
+	High School of American Studies at Lehman College
+</option>
+<option value="high school of applied communication">
+	High School of Applied Communication
+</option>
+<option value="high school of ar ts and technology">
+	High School of Ar ts and Technology
+</option>
+<option value="high school of computers and technology">
+	High School of Computers and Technology
+</option>
+<option value="high school of economics and finance">
+	High School of Economics and Finance
+</option>
+<option value="the high school of fashion industries">
+	The High School of Fashion Industries
+</option>
+<option value="high school of hospitality management">
+	High School of Hospitality Management
+</option>
+<option value="high school of language and innovation">
+	High School of Language and Innovation
+</option>
+<option value="high school of spor ts management">
+	High School of Spor ts Management
+</option>
+<option value="high school of telecommunication arts and technology">
+	High School of Telecommunication Arts and Technology
+</option>
+<option value="high school of world cultures">
+	High School of World Cultures
+</option>
+<option value="hillcrest high school">
+	Hillcrest High School
+</option>
+<option value="hillside arts letters academy">
+	Hillside Arts &amp; Letters Academy
+</option>
+<option value="holcombe l rucker school of community research">
+	Holcombe L. Rucker School of Community Research
+</option>
+<option value="hostoslincoln academy of scienc e">
+	Hostos-Lincoln Academy of Scienc e
+</option>
+<option value="hudson high school of learning technologies">
+	Hudson High School of Learning Technologies
+</option>
+<option value="humanities ar ts magnet high school">
+	Humanities &amp; Ar ts Magnet High School
+</option>
+<option value="humanities preparatory academy">
+	Humanities Preparatory Academy
+</option>
+<option value="information technology high school">
+	Information Technology High School
+</option>
+<option value="institute for collaborative education">
+	Institute for Collaborative Education
+</option>
+<option value="institute for health professions at cambria heights">
+	Institute for Health Professions at Cambria Heights
+</option>
+<option value="intech academy ms/hs ">
+	IN-Tech Academy (MS/HS )
+</option>
+<option value="international community high school">
+	International Community High School
+</option>
+<option value="international high school at lafayette">
+	International High School at Lafayette
+</option>
+<option value="international high school at laguardia community college">
+	International High School at LaGuardia Community College
+</option>
+<option value="international high school at prospect heights">
+	International High School at Prospect Heights
+</option>
+<option value="international high school at union square">
+	International High School at Union Square
+</option>
+<option value="international high school for health sciences">
+	International High School for Health Sciences
+</option>
+<option value="international school for liberal arts">
+	International School for Liberal Arts
+</option>
+<option value="inwood early college for health and information technologies">
+	Inwood Early College for Health and Information Technologies
+</option>
+<option value="it takes a village academy">
+	It Takes a Village Academy
+</option>
+<option value="jacqueline kennedy onassis high school">
+	Jacqueline Kennedy Onassis High School
+</option>
+<option value="jamaica gateway to the scienc es">
+	Jamaica Gateway to the Scienc es
+</option>
+<option value="james madison high school">
+	James Madison High School
+</option>
+<option value="john adams high school">
+	John Adams High School
+</option>
+<option value="john bowne high school">
+	John Bowne High School
+</option>
+<option value="john dewey high school">
+	John Dewey High School
+</option>
+<option value="juan morel campos secondary school">
+	Juan Morel Campos Secondary School
+</option>
+<option value="khalil gibran international academy">
+	Khalil Gibran International Academy
+</option>
+<option value="kingsborough early college school">
+	Kingsborough Early College School
+</option>
+<option value="kingsbridge international high school">
+	Kingsbridge International High School
+</option>
+<option value="knowledge and power preparatory academy international high school">
+	Knowledge and Power Preparatory Academy International High School
+</option>
+<option value="kurt hahn expeditionary learning school">
+	Kurt Hahn Expeditionary Learning School
+</option>
+<option value="landmark high school">
+	Landmark High School
+</option>
+<option value="leadership and public service high school">
+	Leadership and Public Service High School
+</option>
+<option value="leadership institute">
+	Leadership Institute
+</option>
+<option value="leon m goldstein high school for the sciences">
+	Leon M. Goldstein High School for the Sciences
+</option>
+<option value="life academy high school for film and music">
+	Life Academy High School for Film and Music
+</option>
+<option value="life sciences secondary school">
+	Life Sciences Secondary School
+</option>
+<option value="long island city high school">
+	Long Island City High School
+</option>
+<option value="lower manhattan arts academy">
+	Lower Manhattan Arts Academy
+</option>
+<option value="lyons community school">
+	Lyons Community School
+</option>
+<option value="ms 223 the laboratory school of finance and technology">
+	M.S. 223 The Laboratory School of Finance and Technology
+</option>
+<option value="manhattan academy for ar ts language">
+	Manhattan Academy for Ar ts &amp; Language
+</option>
+<option value="manhattan bridges high school">
+	Manhattan Bridges High School
+</option>
+<option value="manhattan business academy">
+	Manhattan Business Academy
+</option>
+<option value="manhattan center for scienc e and mathematics">
+	Manhattan Center for Scienc e and Mathematics
+</option>
+<option value="manhattan early college school for advertising">
+	Manhattan Early College School for Advertising
+</option>
+<option value="manhattan/hunter science high school">
+	Manhattan/Hunter Science High School
+</option>
+<option value="manhattan international high school">
+	Manhattan International High School
+</option>
+<option value="manhattan village academy">
+	Manhattan Village Academy
+</option>
+<option value="marble hill high school for international studies">
+	Marble Hill High School for International Studies
+</option>
+<option value="the marie curie school for medicine nursing and health and health professions">
+	The Marie Curie School for Medicine, Nursing, and Health and Health Professions
+</option>
+<option value="marta valle high school">
+	Marta Valle High School
+</option>
+<option value="martin van buren high school">
+	Martin Van Buren High School
+</option>
+<option value="maspeth high school">
+	Maspeth High School
+</option>
+<option value="mathematics science research and technology magnet high school">
+	Mathematics, Science Research and Technology Magnet High School
+</option>
+<option value="medgar evers college preparatory school">
+	Medgar Evers College Preparatory School
+</option>
+<option value="metropolitan expeditionary learning school">
+	Metropolitan Expeditionary Learning School
+</option>
+<option value="the metropolitan high school">
+	The Metropolitan High School
+</option>
+<option value="the metropolitan soundview high school">
+	The Metropolitan Soundview High School
+</option>
+<option value="the michael j petrides school">
+	The Michael J. Petrides School
+</option>
+<option value="middle college high school at laguardia community college">
+	Middle College High School at LaGuardia Community College
+</option>
+<option value="midwood high school">
+	Midwood High School
+</option>
+<option value="millennium art academy">
+	Millennium Art Academy
+</option>
+<option value="millennium brooklyn">
+	Millennium Brooklyn
+</option>
+<option value="millennium high school">
+	Millennium High School
+</option>
+<option value="monroe academy for visual arts design">
+	Monroe Academy for Visual Arts &amp; Design
+</option>
+<option value="morris academy for collaborative studies">
+	Morris Academy for Collaborative Studies
+</option>
+<option value="mott hall bronx high school">
+	Mott Hall Bronx High School
+</option>
+<option value="mott hall high school">
+	Mott Hall High School
+</option>
+<option value="mott hall v">
+	Mott Hall V
+</option>
+<option value="mott haven village preparatory high school">
+	Mott Haven Village Preparatory High School
+</option>
+<option value="multicultural high school">
+	Multicultural High School
+</option>
+<option value="murray hill academy">
+	Murray Hill Academy
+</option>
+<option value="murry bergtraum high school for business careers">
+	Murry Bergtraum High School for Business Careers
+</option>
+<option value="nyc ischool">
+	NYC iSchool
+</option>
+<option value="nyc lab school for collaborative studies">
+	NYC Lab School for Collaborative Studies
+</option>
+<option value="nyc mus eum school">
+	NYC Mus eum School
+</option>
+<option value="nelson mandela school for social justice">
+	Nelson Mandela School for Social Justice
+</option>
+<option value="new design high school">
+	New Design High School
+</option>
+<option value="new directions secondary school">
+	New Directions Secondary School
+</option>
+<option value="new dorp high school">
+	New Dorp High School
+</option>
+<option value="new explorations into science technology and math high school">
+	New Explorations into Science, Technology and Math High School
+</option>
+<option value="new explorers high school">
+	New Explorers High School
+</option>
+<option value="new utrecht high school">
+	New Utrecht High School
+</option>
+<option value="new world high school">
+	New World High School
+</option>
+<option value="newcomers high school">
+	Newcomers High School
+</option>
+<option value="newtown high school">
+	Newtown High School
+</option>
+<option value="origins high school">
+	Origins High School
+</option>
+<option value="pablo neruda academy for architecture and world studies">
+	Pablo Neruda Academy for Architecture and World Studies
+</option>
+<option value="pace high school">
+	Pace High School
+</option>
+<option value="pan american international high school">
+	Pan American International High School
+</option>
+<option value="pan american international high school at monroe">
+	Pan American International High School at Monroe
+</option>
+<option value="park east high school">
+	Park East High School
+</option>
+<option value="park slope collegiate">
+	Park Slope Collegiate
+</option>
+<option value="pathways college preparatory school a college board school">
+	Pathways College Preparatory School: A College Board School
+</option>
+<option value="pathways in technology early college high school ptech">
+	Pathways in Technology Early College High School (P-TECH)
+</option>
+<option value="peace and diversity academy">
+	Peace and Diversity Academy
+</option>
+<option value="pelham lab high school">
+	Pelham Lab High School
+</option>
+<option value="pelham preparatory academy">
+	Pelham Preparatory Academy
+</option>
+<option value="performing ar ts and technology high school">
+	Performing Ar ts and Technology High School
+</option>
+<option value="port richmond high school">
+	Port Richmond High School
+</option>
+<option value="preparatory academy for writers a college board school">
+	Preparatory Academy for Writers: A College Board School
+</option>
+<option value="professional performing arts high school">
+	Professional Performing Arts High School
+</option>
+<option value="progress high school for professional careers">
+	PROGRESS High School for Professional Careers
+</option>
+<option value="queens collegiate a college board school">
+	Queens Collegiate: A College Board School
+</option>
+<option value="queens gateway to health sciences secondary school">
+	Queens Gateway to Health Sciences Secondary School
+</option>
+<option value="queens high school for information research and technology">
+	Queens High School for Information, Research, and Technology
+</option>
+<option value="queens high school for language studies">
+	Queens High School for Language Studies
+</option>
+<option value="queens high school for the scienc es at york college">
+	Queens High School for the Scienc es at York College
+</option>
+<option value="queens high school of teaching liberal arts and the sciences">
+	Queens High School of Teaching, Liberal Arts and the Sciences
+</option>
+<option value="queens metropolitan high school">
+	Queens Metropolitan High School
+</option>
+<option value="queens preparatory academy">
+	Queens Preparatory Academy
+</option>
+<option value="the queens school of inquiry">
+	The Queens School of Inquiry
+</option>
+<option value="queens vocational and technical high school">
+	Queens Vocational and Technical High School
+</option>
+<option value="quest to learn">
+	Quest to Learn
+</option>
+<option value="rachel carson high school for coastal studies">
+	Rachel Carson High School for Coastal Studies
+</option>
+<option value="ralph r mckee career and technical education high school">
+	Ralph R. McKee Career and Technical Education High School
+</option>
+<option value="renaissance high school for musical theater technology">
+	Renaissance High School for Musical Theater &amp; Technology
+</option>
+<option value="repertory company high school for theatre arts">
+	Repertory Company High School for Theatre Arts
+</option>
+<option value="richard r green high school of teaching">
+	Richard R. Green High School of Teaching
+</option>
+<option value="richmond hill high school">
+	Richmond Hill High School
+</option>
+<option value="riverdale/kingsbridge academy ms/hs ">
+	Riverdale/Kingsbridge Academy (MS/HS )
+</option>
+<option value="robert f kennedy community high school">
+	Robert F. Kennedy Community High School
+</option>
+<option value="robert f wagner jr secondary school for arts and technology">
+	Robert F. Wagner, Jr. Secondary School for Arts and Technology
+</option>
+<option value="robert h goddard high school of communication arts and technology">
+	Robert H. Goddard High School of Communication Arts and Technology
+</option>
+<option value="rockaway collegiate high school">
+	Rockaway Collegiate High School
+</option>
+<option value="rockaway park high school for environmental sustainability">
+	Rockaway Park High School for Environmental Sustainability
+</option>
+<option value="scholars academy">
+	Scholars' Academy
+</option>
+<option value="the school for classics an academy of thinkers writers and performers">
+	The School for Classics: An Academy of Thinkers, Writers and Performers
+</option>
+<option value="school for democracy and leadership">
+	School for Democracy and Leadership
+</option>
+<option value="school for excellence">
+	School for Excellence
+</option>
+<option value="the school for human rights">
+	The School for Human Rights
+</option>
+<option value="school for international studies">
+	School for International Studies
+</option>
+<option value="school for legal studies">
+	School for Legal Studies
+</option>
+<option value="school for tourism and hospitality">
+	School for Tourism and Hospitality
+</option>
+<option value="school of the future high school">
+	School of the Future High School
+</option>
+<option value="schuylerville preparatory high school">
+	Schuylerville Preparatory High School
+</option>
+<option value="science skills center high school for science technology and the creative arts">
+	Science Skills Center High School for Science, Technology and the Creative Arts
+</option>
+<option value="science technology and research early college high school at erasmus">
+	Science, Technology and Research Early College High School at Erasmus
+</option>
+<option value="secondary school for journalism">
+	Secondary School for Journalism
+</option>
+<option value="secondary school for law">
+	Secondary School for Law
+</option>
+<option value="south bronx preparatory a college board school">
+	South Bronx Preparatory: A College Board School
+</option>
+<option value="special music school">
+	Special Music School
+</option>
+<option value="spring creek community school">
+	Spring Creek Community School
+</option>
+<option value="staten island technical high school">
+	Staten Island Technical High School
+</option>
+<option value="stephen t mather building arts craftsmanship high school">
+	Stephen T. Mather Building Arts &amp; Craftsmanship High School
+</option>
+<option value="stuyvesant high school">
+	Stuyvesant High School
+</option>
+<option value="sunset park high school">
+	Sunset Park High School
+</option>
+<option value="susan e wagner high school">
+	Susan E. Wagner High School
+</option>
+<option value="talent unlimited high school">
+	Talent Unlimited High School
+</option>
+<option value="teachers preparatory high school">
+	Teachers Preparatory High School
+</option>
+<option value="theatre arts production company school">
+	Theatre Arts Production Company School
+</option>
+<option value="thomas a edison career and technical education high school">
+	Thomas A. Edison Career and Technical Education High School
+</option>
+<option value="thurgood marshall academy for learning and social change">
+	Thurgood Marshall Academy for Learning and Social Change
+</option>
+<option value="tottenville high school">
+	Tottenville High School
+</option>
+<option value="townsend harris high school">
+	Townsend Harris High School
+</option>
+<option value="transit tech career and technical education high school">
+	Transit Tech Career and Technical Education High School
+</option>
+<option value="union square academy for health sciences">
+	Union Square Academy for Health Sciences
+</option>
+<option value="unity center for urban technologies">
+	Unity Center for Urban Technologies
+</option>
+<option value="university heights secondary school">
+	University Heights Secondary School
+</option>
+<option value="university neighborhood high school">
+	University Neighborhood High School
+</option>
+<option value="urban action academy">
+	Urban Action Academy
+</option>
+<option value="the urban assembly academy of government and law">
+	The Urban Assembly Academy of Government and Law
+</option>
+<option value="the urban assembly bronx academy of letters">
+	The Urban Assembly Bronx Academy of Letters
+</option>
+<option value="urban assembly gateway school for technology">
+	Urban Assembly Gateway School for Technology
+</option>
+<option value="urban assembly high school of music and art">
+	Urban Assembly High School of Music and Art
+</option>
+<option value="urban assembly institute of math and science for young women">
+	Urban Assembly Institute of Math and Science for Young Women
+</option>
+<option value="urban assembly maker academy">
+	Urban Assembly Maker Academy
+</option>
+<option value="urban assembly new york harbor school">
+	Urban Assembly New York Harbor School
+</option>
+<option value="the urban assembly school for applied math and science">
+	The Urban Assembly School for Applied Math and Science
+</option>
+<option value="urban assembly school for careers in sports">
+	Urban Assembly School for Careers in Sports
+</option>
+<option value="the urban assembly school for collaborative healthcare">
+	The Urban Assembly School for Collaborative Healthcare
+</option>
+<option value="urban assembly school for criminal justice">
+	Urban Assembly School for Criminal Justice
+</option>
+<option value="the urban assembly school for emergency management">
+	The Urban Assembly School for Emergency Management
+</option>
+<option value="the urban assembly school for global commerce">
+	The Urban Assembly School for Global Commerce
+</option>
+<option value="the urban assembly school for green careers">
+	The Urban Assembly School for Green Careers
+</option>
+<option value="the urban assembly school for law and justice">
+	The Urban Assembly School for Law and Justice
+</option>
+<option value="the urban assembly school for media studies">
+	The Urban Assembly School for Media Studies
+</option>
+<option value="urban assembly school for the performing arts">
+	Urban Assembly School for the Performing Arts
+</option>
+<option value="urban assembly school for wildlife conservation">
+	Urban Assembly School for Wildlife Conservation
+</option>
+<option value="the urban assembly school of business for young women">
+	The Urban Assembly School of Business for Young Women
+</option>
+<option value="the urban assembly school of design and construction">
+	The Urban Assembly School of Design and Construction
+</option>
+<option value="validus preparatory academy an expeditionary learning school">
+	Validus Preparatory Academy: An Expeditionary Learning School
+</option>
+<option value="vanguard high school">
+	Vanguard High School
+</option>
+<option value="veritas academy">
+	Veritas Academy
+</option>
+<option value="victory collegiate high school">
+	Victory Collegiate High School
+</option>
+<option value="w h maxwell career and technical education high school">
+	W. H. Maxwell Career and Technical Education High School
+</option>
+<option value="wadleigh secondary school for the performing visual arts">
+	Wadleigh Secondary School for the Performing &amp; Visual Arts
+</option>
+<option value="washington heights expeditionary learning school">
+	Washington Heights Expeditionary Learning School
+</option>
+<option value="west bronx academy for the future">
+	West Bronx Academy for the Future
+</option>
+<option value="westchester square academy">
+	Westchester Square Academy
+</option>
+<option value="william cullen bryant high school">
+	William Cullen Bryant High School
+</option>
+<option value="william e grady career and technical education high school">
+	William E. Grady Career and Technical Education High School
+</option>
+<option value="williamsburg high school for architecture and design">
+	Williamsburg High School for Architecture and Design
+</option>
+<option value="williamsburg preparatory school">
+	Williamsburg Preparatory School
+</option>
+<option value="wings academy">
+	Wings Academy
+</option>
+<option value="womens academy of excellence">
+	Women's Academy of Excellence
+</option>
+<option value="world academy for total community health high school">
+	World Academy for Total Community Health High School
+</option>
+<option value="world journalism preparatory a college board school">
+	World Journalism Preparatory: A College Board School
+</option>
+<option value="world view high school">
+	World View High School
+</option>
+<option value="york early college academy">
+	York Early College Academy
+</option>
+<option value="young womens leadership school">
+	Young Women's Leadership School
+</option>
+<option value="young womens leadership school of brooklyn">
+	Young Women's Leadership School of Brooklyn
+</option>
+<option value="young womens leadership school of the bronx">
+	Young Women's Leadership School of the Bronx
+</option>
+<option value="young womens leadership school astoria">
+	Young Women's Leadership School, Astoria
+</option>
+<option value="young womens leadership school queens">
+	Young Women's Leadership School, Queens
+</option>
 {% endblock %}

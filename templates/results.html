@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% if not rating or not salary %}
+<div class="alert alert-danger">
+  <strong>Error</strong> Data unavailable. Please try another name for this teacher.
+</div>
+{% endif %}
+
+<h1>Data for Teacher {{ full_name }}</h1>
+
+{% if not rating or not salary %}
+<h3>*Efficiency: N/A</h3>
+{% else %}
+<h3>*Efficiency: {{ (rating / salary * 10000000)|int / 100.0 }}</h3>
+{% endif %}
+
+{% if not rating %}
+<h4>Rating: N/A</h4>
+{% else %}
+<h4>Rating: {{ rating }} out of 5.0 ({{ num_ratings }} reviews)</h4>
+{% endif %}
+
+{% if not salary %}
+<h4>Salary: N/A</h4>
+{% else %}
+<h4>Salary: ${{ salary }}0 per Year</h4>
+{% endif %}
+
+<p>*Effiency is calculated as Rating / Salary * 100000</p>
+{% endblock %}
