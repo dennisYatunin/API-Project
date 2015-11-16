@@ -12,7 +12,6 @@ def index():
             )
         full_name = salary_data['full_name']
         salary = salary_data['salary']
-        photo = get_photo(full_name, request.form['school'])
         if not salary:
             name_and_rating_data = get_name_and_rating(
                 full_name,
@@ -27,6 +26,7 @@ def index():
                 )
             full_name = salary_data['full_name']
             salary = salary_data['salary']
+            photo = get_photo(full_name, request.form['school'])
         else:
             rating_data = get_rating(
                 salary_data['full_name'],
@@ -35,6 +35,7 @@ def index():
             subject = rating_data['subject']
             rating = rating_data['rating']
             num_ratings = rating_data['num_ratings']
+            photo = get_photo(full_name, request.form['school'])
         return render_template(
             'results.html',
             full_name = full_name,
