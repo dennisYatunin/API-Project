@@ -191,7 +191,7 @@ def get_efficiency(salary, rating):
     Efficiency is calculated as the fraction of the maximum rating
     divided by the fraction of the maximum salary.
 
-    If salary or rating are None (or 0), the efficiency is None.
+    If the salary or rating is None (or 0), the efficiency is set to None.
     '''
     if not salary or not rating:
         return None
