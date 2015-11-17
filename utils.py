@@ -31,9 +31,10 @@ def get_salary(first_name, last_name):
         'DEPT OF ED HRLY SUPPORT STAFF '
         )
     i = 0
+    
     while True:
         if i == len(agency_names):
-            full_name = first_name + ' ' + last_name
+            full_name = ' '.join(filter(None, (first_name, last_name)))
             salary = None
             return {'full_name': full_name, 'salary': salary}
         url = uri % (
@@ -49,6 +50,7 @@ def get_salary(first_name, last_name):
             teacher_dict = result[0]
             break
         i += 1
+    
     # New York has, on average, 182 school days per year and 6.59 hours per school day.
     # Source: https://nces.ed.gov/surveys/sass/tables/sass0708_035_s1s.asp
     salary = float(teacher_dict['base_salary'])
@@ -56,13 +58,21 @@ def get_salary(first_name, last_name):
         salary *= 182
     elif teacher_dict['pay_basis'] == ' per Hour':
         salary *= 182 * 6.59
-    first = teacher_dict['first_name'][0] + teacher_dict['first_name'][1:].lower() + ' '
-    if 'mid_init' in teacher_dict:
-        middle = teacher_dict['mid_init'] + '. '
+    
+    if first_name:
+        first = first_name
     else:
-        middle = ''
-    last = teacher_dict['last_name'][0] + teacher_dict['last_name'][1:].lower()
-    full_name = first + middle + last
+        first = teacher_dict['first_name'][0] + teacher_dict['first_name'][1:].lower()
+    if 'mid_init' in teacher_dict:
+        middle = teacher_dict['mid_init'] + '.'
+    else:
+        middle = None
+    if last_name:
+        last = last_name
+    else:
+        last = teacher_dict['last_name'][0] + teacher_dict['last_name'][1:].lower()
+    full_name = ' '.join(filter(None, (first, middle, last)))
+    
     return {'full_name': full_name, 'salary': salary}
 
 def get_name_and_rating(query, high_school):
@@ -175,15 +185,17 @@ def get_photo(name, high_school):
     response = Request(inputurl)
     return loads(urlopen(response).read())['responseData']['results'][0]['url']
 
-def get_eff_as_percent(salary, rating):
-    salary_percent = (salary/100049.0)*100
-    rating_percent = (rating/5.0)*100
-    if salary_percent < 1.0:
-        salary_percent = 1.0
-    if rating_percent < 1.0:
-        rating_percent = 1.0
-    eff_percent_raw = rating_percent / salary_percent
-    return eff_percent_raw
+def get_efficiency(salary, rating):
+    '''Returns the efficiency of a teacher.
+
+    Efficiency is calculated as the fraction of the maximum rating
+    divided by the fraction of the maximum salary.
+
+    If salary or rating are None (or 0), the efficiency is None.
+    '''
+    if not salary or not rating:
+        return None
+    return (rating / 5) / (salary / 100049)
 
 def get_secret_key():
     '''Returns a key that may be used to secure a Flask session

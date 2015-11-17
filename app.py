@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils import get_salary, get_name_and_rating, get_rating, get_secret_key, get_photo, get_eff_as_percent
+from utils import get_salary, get_name_and_rating, get_rating, get_secret_key, get_photo, get_efficiency
 
 app = Flask(__name__)
 
@@ -12,6 +12,9 @@ def index():
             )
         full_name = salary_data['full_name']
         salary = salary_data['salary']
+        # If the NYC Database does not have an entry with the given name,
+        # scrape ratemyteachers.com for the teacher with the closest name
+        # at the given school, and then attempt to get the salary data again.
         if not salary:
             name_and_rating_data = get_name_and_rating(
                 full_name,
@@ -26,8 +29,7 @@ def index():
                 )
             full_name = salary_data['full_name']
             salary = salary_data['salary']
-            photo = get_photo(full_name, request.form['school'])
-            eff_percent = 0
+        # Otherwise, only use ratemyteachers.com to get the rating.
         else:
             rating_data = get_rating(
                 salary_data['full_name'],
@@ -36,8 +38,8 @@ def index():
             subject = rating_data['subject']
             rating = rating_data['rating']
             num_ratings = rating_data['num_ratings']
-            photo = get_photo(full_name, request.form['school'])
-            eff_percent = get_eff_as_percent(salary, rating)
+        photo = get_photo(full_name, request.form['school'])
+        efficiency = get_efficiency(salary, rating)
         return render_template(
             'results.html',
             full_name = full_name,
@@ -46,7 +48,7 @@ def index():
             rating = rating,
             num_ratings = num_ratings,
             photo = photo,
-            eff_percent = eff_percent
+            efficiency = efficiency
             )
     return render_template('index.html')
 

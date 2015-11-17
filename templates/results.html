@@ -16,39 +16,51 @@
 </div>
 {% endif %}
 
-{% if subject %}
-<h1>Data for {{ subject }} teacher {{ full_name }}</h1>
-{% else %}
-<h1>Data for teacher {{ full_name }}</h1>
-{% endif %}
+<table class="table table-hover">
+	<thead>
+		<tr>
+			{% if subject %}
+			<th>Data for {{ subject }} teacher {{ full_name }}</th>
+			{% else %}
+			<th>Data for teacher {{ full_name }}</th>
+			{% endif %}
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			{% if not efficiency %}
+			<td>Efficiency: N/A*</td>
+			{% else %}
+			<td>Efficiency: {{ '{:,.2f}'.format(efficiency) }}*</td>
+			{% endif %}
+		</tr>
+		<tr>
+			{% if not rating %}
+			<td>Rating: N/A</td>
+			{% else %}
+			<td>Rating: {{ '{:,.1f}'.format(rating) }} out of 5.0 ({{ num_ratings }} reviews)</td>
+			{% endif %}
+		</tr>
+		<tr>
+			{% if not salary %}
+			<td>Salary: N/A</td>
+			{% else %}
+			<td>Salary: {{ '${:,.2f}'.format(salary) }} per Year (Maxiumum Salary = $100,049.00)</td>
+			{% endif %}
+		</tr>
+	</tbody>
+</table>
 
-{% if not rating or not salary %}
-<h3>Efficiency: N/A*</h3>
-{% else %}
-<h3>Efficiency: {{ '{:,.2f}'.format(rating / salary * 100000) }}*</h3>
-{% endif %}
-
-{% if not rating %}
-<h4>Rating: N/A</h4>
-{% else %}
-<h4>Rating: {{ rating }} out of 5.0 ({{ num_ratings }} reviews)</h4>
-{% endif %}
-
-{% if not salary %}
-<h4>Salary: N/A</h4>
-{% else %}
-<h4>Salary: {{ '${:,.2f}'.format(salary) }} per year</h4>
-{% endif %}
-
-<h3>Efficiency as a percentage, relative to salary: {{ '{:,.2f}'.format(eff_percent) }} <h3>
-<h3>Efficiency as a percentage, relative to maximum possible: {{ '{:,.2f}'.format(eff_percent / 2.2) }} <h3>
-<p>Efficiency as a percentage relative to salary is calculated as ((rating ÷ max rating) ÷ (salary ÷ max salary)) ÷ max ratio (highest rating ÷ lowest slary).</p>
-<p>Efficiency as a percentage relative to maximum is calculated as (Efficiency as a percentage relative to salary) ÷ (highest rating ÷ lowest slary).</p>
-
-<p>*Effiency is calculated as rating ÷ salary &times; 100,000</p>
-
+<p>*Effiency is calculated as <img src="http://latex.codecogs.com/svg.latex?\frac{\textup{Rating}}{5.0}\div\frac{\textup{Salary}}{\$100,049}" border="0"/> </p>
 
 <h1>{{ full_name }} probably looks like this:</h1>
 <img src="{{photo}}" class="img-rounded" style="max-height: 600px; max-width: 60%; display: block;" />
 {% endif %}
 {% endblock %}
+
+<!--
+<h3>Efficiency as a percentage, relative to salary: {{ '{:,.2f}'.format(eff_percent) }} <h3>
+<h3>Efficiency as a percentage, relative to maximum possible: {{ '{:,.2f}'.format(eff_percent / 2.2) }} <h3>
+<p>Efficiency as a percentage relative to salary is calculated as ((rating ÷ max rating) ÷ (salary ÷ max salary)) ÷ max ratio (highest rating ÷ lowest slary).</p>
+<p>Efficiency as a percentage relative to maximum is calculated as (Efficiency as a percentage relative to salary) ÷ (highest rating ÷ lowest slary).</p>
+-->
